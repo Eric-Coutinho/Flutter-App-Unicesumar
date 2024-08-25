@@ -66,7 +66,7 @@ class LoginScreen extends StatelessWidget {
                             'Cereais',
                           ),
                           FadeAnimatedText(
-                            'Laticinios',
+                            'Laticínios',
                           ),
                         ],
                       ),
