@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/src/auth/login_screen.dart';
+import 'package:flutter_application_1/src/config/custom_colors.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
         brightness: Brightness.light,
       ),
       darkTheme: ThemeData(
-        colorSchemeSeed: Colors.blue,
+        colorSchemeSeed: CustomColors.customizedAppColor,
         useMaterial3: true,
         brightness: Brightness.dark
       ),

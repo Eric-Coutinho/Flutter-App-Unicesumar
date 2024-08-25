@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/src/config/custom_colors.dart';
 
 class TextForm extends StatefulWidget {
   final IconData icon;
@@ -22,28 +23,31 @@ class _TextFormState extends State<TextForm> {
     super.initState();
     isObscure = widget.isSecret;
   }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 15),
-      child: TextFormField(
-        obscureText: isObscure,
-        decoration: InputDecoration(
-          prefixIcon: Icon(widget.icon),
-          suffixIcon: widget.isSecret
-              ? IconButton(
-                  onPressed: () {
-                    setState(() {
-                      isObscure = !isObscure;
-                    });
-                  },
-                  icon: Icon(isObscure ? Icons.visibility : Icons.visibility_off))
-              : null,
-          labelText: widget.label,
-          isDense: true,
-          border: OutlineInputBorder(borderRadius: BorderRadius.circular(13)),
-        ),
-      ),
-    );
+        padding: const EdgeInsets.only(bottom: 15),
+        child: TextFormField(
+          style: TextStyle(color: CustomColors.inputTextColor),
+          obscureText: isObscure,
+          decoration: InputDecoration(
+            prefixIcon: Icon(widget.icon),
+            suffixIcon: widget.isSecret
+                ? IconButton(
+                    onPressed: () {
+                      setState(() {
+                        isObscure = !isObscure;
+                      });
+                    },
+                    icon: Icon(
+                        isObscure ? Icons.visibility : Icons.visibility_off))
+                : null,
+            labelText: widget.label,
+            isDense: true,
+            border: OutlineInputBorder(borderRadius: BorderRadius.circular(13)),
+            labelStyle: TextStyle(color: CustomColors.inputTextColor),
+          ),
+        ));
   }
 }
