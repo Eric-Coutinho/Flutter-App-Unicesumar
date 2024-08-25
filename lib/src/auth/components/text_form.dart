@@ -27,7 +27,7 @@ class _TextFormState extends State<TextForm> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: const EdgeInsets.only(bottom: 15),
+        padding: const EdgeInsets.only(bottom: 20),
         child: TextFormField(
           style: TextStyle(color: CustomColors.inputTextColor),
           obscureText: isObscure,

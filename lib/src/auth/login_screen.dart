@@ -2,6 +2,7 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/src/auth/components/text_form.dart';
 import 'package:flutter_application_1/src/config/custom_colors.dart';
+import 'package:flutter_application_1/src/register/register_screen.dart';
 
 void main() {
   runApp(const LoginScreen());
@@ -156,7 +157,15 @@ class LoginScreen extends StatelessWidget {
                                     side: BorderSide(
                                         color: CustomColors.customizedAppColor,
                                         width: 2)),
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) =>
+                                          const RegisterScreen(),
+                                    ),
+                                  );
+                                },
                                 child: Text(
                                   'Criar Conta',
                                   style: TextStyle(
