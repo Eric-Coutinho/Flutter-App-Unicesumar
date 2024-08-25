@@ -3,34 +3,41 @@ import 'package:flutter/material.dart';
 class TextForm extends StatefulWidget {
   final IconData icon;
   final String label;
-  bool hideText;
-  TextForm(
+  final bool isSecret;
+
+  const TextForm(
       {super.key,
       required this.icon,
       required this.label,
-      this.hideText = false});
+      this.isSecret = false});
 
   @override
   State<TextForm> createState() => _TextFormState();
 }
 
 class _TextFormState extends State<TextForm> {
+  bool isObscure = false;
+  @override
+  void initState() {
+    super.initState();
+    isObscure = widget.isSecret;
+  }
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 15),
       child: TextFormField(
-        obscureText: widget.hideText,
+        obscureText: isObscure,
         decoration: InputDecoration(
           prefixIcon: Icon(widget.icon),
-          suffixIcon: widget.hideText
+          suffixIcon: widget.isSecret
               ? IconButton(
                   onPressed: () {
                     setState(() {
-                      widget.hideText = !widget.hideText;
+                      isObscure = !isObscure;
                     });
                   },
-                  icon: const Icon(Icons.visibility))
+                  icon: Icon(isObscure ? Icons.visibility : Icons.visibility_off))
               : null,
           labelText: widget.label,
           isDense: true,

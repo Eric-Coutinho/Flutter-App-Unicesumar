@@ -27,9 +27,55 @@ class LoginScreen extends StatelessWidget {
                       borderRadius:
                           BorderRadius.vertical(top: Radius.circular(45))),
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      TextForm(label: "Email", icon: Icons.email), 
-                      TextForm(label: "Senha", icon: Icons.lock, hideText: true), 
+                      const TextForm(label: "Email", icon: Icons.email),
+                      const TextForm(
+                          label: "Senha", icon: Icons.lock, isSecret: true),
+                      SizedBox(
+                          height: 50,
+                          child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                  backgroundColor: Colors.blue,
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(18))),
+                              onPressed: () {},
+                              child: const Text(
+                                'Entrar',
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 20),
+                              ))),
+                      Align(
+                        alignment: Alignment.centerRight,
+                        child: TextButton(
+                            onPressed: () {},
+                            child: const Text(
+                              'Esqueci minha senha',
+                              style: TextStyle(color: Colors.red, fontSize: 16),
+                            )),
+                      ),
+                      Row(
+                        children: [
+                          Expanded(
+                            child: Divider(
+                              color: Colors.grey.withAlpha(90),
+                              thickness: 2,
+                            )
+                          ),
+                          const Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 18),
+                            child: Text(
+                              'Ou',
+                            ),
+                          ),
+                          Expanded(
+                            child: Divider(
+                              color: Colors.grey.withAlpha(90),
+                              thickness: 2,
+                            )
+                          ),
+                        ],
+                      )
                     ],
                   ))),
         ],
