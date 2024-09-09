@@ -1,8 +1,9 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/src/auth/components/text_form.dart';
+import 'package:flutter_application_1/src/pages/auth/components/text_form.dart';
+import 'package:flutter_application_1/src/pages/base/base_screen.dart';
 import 'package:flutter_application_1/src/config/custom_colors.dart';
-import 'package:flutter_application_1/src/register/register_screen.dart';
+import 'package:flutter_application_1/src/pages/register/register_screen.dart';
 
 void main() {
   runApp(const LoginScreen());
@@ -92,13 +93,12 @@ class LoginScreen extends StatelessWidget {
                           SizedBox(
                               height: 50,
                               child: ElevatedButton(
-                                  style: ElevatedButton.styleFrom(
-                                      backgroundColor:
-                                          CustomColors.customizedAppColor,
-                                      shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(18))),
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Navigator.of(context)
+                                        .push(MaterialPageRoute(builder: (c) {
+                                      return BaseScreen();
+                                    }));
+                                  },
                                   child: const Text(
                                     'Entrar',
                                     style: TextStyle(
@@ -158,12 +158,10 @@ class LoginScreen extends StatelessWidget {
                                         color: CustomColors.customizedAppColor,
                                         width: 2)),
                                 onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) =>
-                                          const RegisterScreen(),
-                                    ),
+                                  Navigator.of(context).push(
+                                    MaterialPageRoute(builder: (c) {
+                                      return const RegisterScreen();
+                                    }),
                                   );
                                 },
                                 child: Text(

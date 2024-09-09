@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/src/auth/components/text_form.dart';
+import 'package:flutter_application_1/src/pages/auth/components/text_form.dart';
 import 'package:flutter_application_1/src/config/custom_colors.dart';
+import 'package:flutter_application_1/src/pages/auth/login_screen.dart';
 
 void main() {
   runApp(const RegisterScreen());
@@ -61,7 +62,11 @@ class RegisterScreen extends StatelessWidget {
                                       shape: RoundedRectangleBorder(
                                           borderRadius:
                                               BorderRadius.circular(18))),
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Navigator.of(context).push(MaterialPageRoute(builder: (c) {
+                                      return const LoginScreen();
+                                    }));
+                                  },
                                   child: const Text(
                                     'Cadastrar Usuário',
                                     style: TextStyle(
