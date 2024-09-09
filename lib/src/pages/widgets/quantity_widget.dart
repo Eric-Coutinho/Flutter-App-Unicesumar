@@ -1,3 +1,5 @@
+// ignore_for_file: camel_case_types
+
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/src/config/custom_colors.dart';
 
@@ -5,12 +7,14 @@ class QuantityWidget extends StatelessWidget {
   final int value;
   final String unity;
   final Function(int amount) result;
+  final bool isRemovable;
 
   const QuantityWidget(
       {super.key,
       required this.value,
       required this.unity,
-      required this.result});
+      required this.result,
+      this.isRemovable = false});
 
   @override
   Widget build(BuildContext context) {
@@ -26,12 +30,14 @@ class QuantityWidget extends StatelessWidget {
             ),
           ]),
       child: Row(
+        mainAxisSize: MainAxisSize.min,
         children: [
           _Button_Quantity(
-            color: Colors.grey,
-            icon: Icons.remove,
+            color: !isRemovable || value > 1 ? Colors.grey : Colors.red,
+            icon:
+                !isRemovable || value > 1 ? Icons.remove : Icons.delete_forever,
             onPressed: () {
-              if (value == 1) return;
+              if (value == 1 && !isRemovable) return;
 
               int total = value - 1;
               result(total);
@@ -53,7 +59,6 @@ class QuantityWidget extends StatelessWidget {
             onPressed: () {
               int total = value + 1;
               result(total);
-              print(total);
             },
           ),
         ],

@@ -96,7 +96,7 @@ class LoginScreen extends StatelessWidget {
                                   onPressed: () {
                                     Navigator.of(context)
                                         .push(MaterialPageRoute(builder: (c) {
-                                      return BaseScreen();
+                                      return const BaseScreen();
                                     }));
                                   },
                                   child: const Text(

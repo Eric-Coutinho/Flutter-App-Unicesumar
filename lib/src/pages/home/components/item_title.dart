@@ -68,7 +68,7 @@ class ItemTitle extends StatelessWidget {
           right: 4,
           child: GestureDetector(
             onTap: () {
-              print('Item Selecionado: ${item.itemName}');
+              // print('Item Selecionado: ${item.itemName}');
             },
             child: Container(
               height: 40,

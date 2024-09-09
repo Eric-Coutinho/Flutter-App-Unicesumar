@@ -14,22 +14,21 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Hortifruti Comunitária',
       theme: ThemeData(
-        colorSchemeSeed: CustomColors.customizedAppColor,
-        useMaterial3: true,
-        brightness: Brightness.light,
-        scaffoldBackgroundColor: const Color.fromARGB(255, 224, 224, 224),
-        bottomNavigationBarTheme: BottomNavigationBarThemeData(
-            backgroundColor: CustomColors.customizedAppColor),
-            elevatedButtonTheme: ElevatedButtonThemeData(
+          colorSchemeSeed: CustomColors.customizedAppColor,
+          useMaterial3: true,
+          brightness: Brightness.light,
+          scaffoldBackgroundColor: const Color.fromARGB(255, 224, 224, 224),
+          bottomNavigationBarTheme: BottomNavigationBarThemeData(
+              backgroundColor: CustomColors.customizedAppColor),
+            appBarTheme: const AppBarTheme(
+              backgroundColor: Color.fromARGB(255, 224, 224, 224),
+            ),
+          elevatedButtonTheme: ElevatedButtonThemeData(
               style: ElevatedButton.styleFrom(
-                foregroundColor: Colors.white,
-                backgroundColor: CustomColors.customizedAppColor,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(18)
-                )
-              )
-            )
-      ),
+                  foregroundColor: Colors.white,
+                  backgroundColor: CustomColors.customizedAppColor,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(18))))),
       home: const LoginScreen(),
       debugShowCheckedModeBanner: false,
     );

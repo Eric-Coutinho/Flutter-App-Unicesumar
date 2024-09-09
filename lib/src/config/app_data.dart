@@ -1,4 +1,5 @@
 import 'package:flutter_application_1/src/model/item_model.dart';
+import 'package:flutter_application_1/src/model/cart_item_model.dart';
 
 ItemModel maca = ItemModel(
   itemDescription:
@@ -398,4 +399,11 @@ List<String> categorias = [
   'Temperos',
   'Cereais',
   'Grãos'
+];
+
+List<CartItemModel> cartItems = [
+    CartItemModel(item: granola, quantity: 1),
+    CartItemModel(item: manga, quantity: 5),
+    CartItemModel(item: batata, quantity: 3),
+    CartItemModel(item: abacaxi, quantity: 2),
 ];
