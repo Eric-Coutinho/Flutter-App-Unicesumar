@@ -98,6 +98,7 @@ class _CartTabState extends State<CartTab> {
                   child: ElevatedButton(
                     onPressed: () async {
                       bool? result = await confirmOrder();
+                      print('Resultado: $result');
                     },
                     child: const Text(
                       "Concluir Pedido",
