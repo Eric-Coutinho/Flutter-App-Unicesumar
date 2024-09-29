@@ -1,5 +1,6 @@
 import 'package:flutter_application_1/src/model/item_model.dart';
 import 'package:flutter_application_1/src/model/cart_item_model.dart';
+import 'package:flutter_application_1/src/model/user_model.dart';
 
 ItemModel maca = ItemModel(
   itemDescription:
@@ -402,8 +403,17 @@ List<String> categorias = [
 ];
 
 List<CartItemModel> cartItems = [
-    CartItemModel(item: granola, quantity: 1),
-    CartItemModel(item: manga, quantity: 5),
-    CartItemModel(item: batata, quantity: 3),
-    CartItemModel(item: abacaxi, quantity: 2),
+  CartItemModel(item: granola, quantity: 1),
+  CartItemModel(item: manga, quantity: 5),
+  CartItemModel(item: batata, quantity: 3),
+  CartItemModel(item: abacaxi, quantity: 2),
 ];
+
+// Usuario atual
+UserModel user = UserModel(
+  name: 'Eric',
+  cpf: '123.456.789-00',
+  email: 'eric@gmail.com',
+  password: '123456',
+  phone: '(41) 1234-5678',
+);

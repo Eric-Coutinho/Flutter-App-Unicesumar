@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/src/pages/auth/components/text_form.dart';
+import 'package:flutter_application_1/src/pages/widgets/text_form.dart';
 import 'package:flutter_application_1/src/config/custom_colors.dart';
 import 'package:flutter_application_1/src/pages/auth/login_screen.dart';
 

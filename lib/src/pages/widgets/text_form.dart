@@ -5,12 +5,17 @@ class TextForm extends StatefulWidget {
   final IconData icon;
   final String label;
   final bool isSecret;
+  final String? initialValue;
+  final bool isReadOnly;
 
-  const TextForm(
-      {super.key,
-      required this.icon,
-      required this.label,
-      this.isSecret = false});
+  const TextForm({
+    super.key,
+    required this.icon,
+    required this.label,
+    this.isSecret = false,
+    this.initialValue,
+    this.isReadOnly = false,
+  });
 
   @override
   State<TextForm> createState() => _TextFormState();
@@ -29,6 +34,8 @@ class _TextFormState extends State<TextForm> {
     return Padding(
         padding: const EdgeInsets.only(bottom: 20),
         child: TextFormField(
+          initialValue: widget.initialValue,
+          readOnly: widget.isReadOnly,
           style: TextStyle(color: CustomColors.inputTextColor),
           obscureText: isObscure,
           decoration: InputDecoration(

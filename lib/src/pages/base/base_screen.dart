@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/src/config/custom_colors.dart';
 import 'package:flutter_application_1/src/pages/cart/cart_tab.dart';
 import 'package:flutter_application_1/src/pages/home/home_tab.dart';
+import 'package:flutter_application_1/src/pages/profile/profile_tab.dart';
 
 class BaseScreen extends StatefulWidget {
   const BaseScreen({super.key});
@@ -26,9 +27,8 @@ class _BaseScreenState extends State<BaseScreen> {
           Container(
             color: Colors.red,
           ),
-          Container(
-            color: Colors.black,
-          ),
+          const ProfileTab(),
+
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
