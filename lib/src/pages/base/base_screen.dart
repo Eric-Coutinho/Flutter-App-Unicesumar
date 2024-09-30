@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/src/config/custom_colors.dart';
 import 'package:flutter_application_1/src/pages/cart/cart_tab.dart';
 import 'package:flutter_application_1/src/pages/home/home_tab.dart';
+import 'package:flutter_application_1/src/pages/order/order_tab.dart';
 import 'package:flutter_application_1/src/pages/profile/profile_tab.dart';
 
 class BaseScreen extends StatefulWidget {
@@ -21,13 +22,11 @@ class _BaseScreenState extends State<BaseScreen> {
       body: PageView(
         physics: const NeverScrollableScrollPhysics(),
         controller: pageController,
-        children: [
-          const HomeTab(),
-          const CartTab(),
-          Container(
-            color: Colors.red,
-          ),
-          const ProfileTab(),
+        children: const [
+          HomeTab(),
+          CartTab(),
+          OrderTab(),
+          ProfileTab(),
 
         ],
       ),

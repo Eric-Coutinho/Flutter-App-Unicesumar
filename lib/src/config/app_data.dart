@@ -1,5 +1,6 @@
 import 'package:flutter_application_1/src/model/item_model.dart';
 import 'package:flutter_application_1/src/model/cart_item_model.dart';
+import 'package:flutter_application_1/src/model/order_model.dart';
 import 'package:flutter_application_1/src/model/user_model.dart';
 
 ItemModel maca = ItemModel(
@@ -81,6 +82,7 @@ ItemModel castanhaPara = ItemModel(
   typeUnity: 'kg',
   urlImage: 'assets/images/castanha-para.png',
 );
+
 ItemModel granola = ItemModel(
   itemName: 'Granola',
   itemDescription:
@@ -417,3 +419,58 @@ UserModel user = UserModel(
   password: '123456',
   phone: '(41) 1234-5678',
 );
+
+List<OrderModel> orders = [
+  OrderModel(
+    code: "kjtr63ekn41aadf23bf",
+    dateTimeOrder: DateTime.parse('2024-08-24 23:55:45.632'),
+    dateTimePixFinished: DateTime.parse('2024-08-25 00:55:45.632'),
+    value: 86.45,
+    copyPaste: 'b8m5g2s6c3z1',
+    status: 'pagamento_pendente',
+    items: [
+      CartItemModel(item: granola, quantity: 1),
+      CartItemModel(item: manga, quantity: 3),
+      CartItemModel(item: abacaxi, quantity: 2),
+    ],
+  ),
+  OrderModel(
+    code: "xsd95ekn41aadf23ff",
+    dateTimeOrder: DateTime.parse('2024-08-24 05:17:45.632'),
+    dateTimePixFinished: DateTime.parse('2024-08-24 05:17:45.632'),
+    value: 86.45,
+    status: 'entregue',
+    copyPaste: 'b8m5g2s6c3z1',
+    items: [
+      CartItemModel(item: granola, quantity: 1),
+      CartItemModel(item: manga, quantity: 3),
+      CartItemModel(item: abacaxi, quantity: 2),
+    ],
+  ),
+  OrderModel(
+    code: "mmkd95ekn41aadf23hh",
+    dateTimeOrder: DateTime.parse('2024-08-30 03:17:45.632'),
+    dateTimePixFinished: DateTime.parse('2024-09-30 04:17:45.632'),
+    value: 0,
+    status: 'estornado',
+    copyPaste: 'b8m5g2s6c3z1',
+    items: [
+      CartItemModel(item: granola, quantity: 1),
+      CartItemModel(item: manga, quantity: 3),
+      CartItemModel(item: abacaxi, quantity: 2),
+    ],
+  ),
+  OrderModel(
+    code: "xsd95ekn41aadf23ff",
+    dateTimeOrder: DateTime.parse('2024-08-30 03:17:45.632'),
+    dateTimePixFinished: DateTime.parse('2024-09-30 04:17:45.632'),
+    value: 86.45,
+    status: 'entregue',
+    copyPaste: 'b8m5g2s6c3z1',
+    items: [
+      CartItemModel(item: granola, quantity: 1),
+      CartItemModel(item: manga, quantity: 3),
+      CartItemModel(item: abacaxi, quantity: 2),
+    ],
+  ),
+];
