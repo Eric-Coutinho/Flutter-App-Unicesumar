@@ -4,6 +4,7 @@ import 'package:flutter_application_1/src/config/custom_colors.dart';
 import 'package:flutter_application_1/src/config/app_data.dart' as appData;
 import 'package:flutter_application_1/src/model/cart_item_model.dart';
 import 'package:flutter_application_1/src/pages/cart/components/cart_title.dart';
+import 'package:flutter_application_1/src/pages/widgets/payment_dialog.dart';
 import 'package:flutter_application_1/src/services/utils.dart';
 
 class CartTab extends StatefulWidget {
@@ -98,7 +99,12 @@ class _CartTabState extends State<CartTab> {
                   child: ElevatedButton(
                     onPressed: () async {
                       bool? result = await confirmOrder();
-                      print('Resultado: $result');
+                      if (result ?? false) {
+                        // ignore: use_build_context_synchronously
+                        showDialog(context: context, builder: (_) {
+                          return PaymentDialog(order: appData.orders.first);
+                        });
+                      }
                     },
                     child: const Text(
                       "Concluir Pedido",

@@ -422,9 +422,9 @@ UserModel user = UserModel(
 
 List<OrderModel> orders = [
   OrderModel(
-    code: "kjtr63ekn41aadf23bf",
-    dateTimeOrder: DateTime.parse('2024-08-24 23:55:45.632'),
-    dateTimePixFinished: DateTime.parse('2024-08-25 00:55:45.632'),
+    code: "pioutyekn41aadf23bf",
+    dateTimeOrder: DateTime.parse('2024-10-04 21:55:45.632'),
+    dateTimePixFinished: DateTime.parse('2024-10-25 00:55:45.632'),
     value: 86.45,
     copyPaste: 'b8m5g2s6c3z1',
     status: 'pagamento_pendente',
@@ -435,9 +435,22 @@ List<OrderModel> orders = [
     ],
   ),
   OrderModel(
+    code: "kjtr63ekn41aadf23bf",
+    dateTimeOrder: DateTime.parse('2024-08-24 23:55:45.632'),
+    dateTimePixFinished: DateTime.parse('2024-08-25 00:55:45.632'),
+    value: 86.45,
+    copyPaste: 'b8m5g2s6c3z1',
+    status: 'estornado',
+    items: [
+      CartItemModel(item: granola, quantity: 1),
+      CartItemModel(item: manga, quantity: 3),
+      CartItemModel(item: abacaxi, quantity: 2),
+    ],
+  ),
+  OrderModel(
     code: "xsd95ekn41aadf23ff",
     dateTimeOrder: DateTime.parse('2024-08-24 05:17:45.632'),
-    dateTimePixFinished: DateTime.parse('2024-08-24 05:17:45.632'),
+    dateTimePixFinished: DateTime.parse('2024-10-24 05:17:45.632'),
     value: 86.45,
     status: 'entregue',
     copyPaste: 'b8m5g2s6c3z1',

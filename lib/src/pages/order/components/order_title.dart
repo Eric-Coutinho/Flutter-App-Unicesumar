@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/src/model/cart_item_model.dart';
 import 'package:flutter_application_1/src/model/order_model.dart';
 import 'package:flutter_application_1/src/pages/order/components/order_status.dart';
+import 'package:flutter_application_1/src/pages/widgets/payment_dialog.dart';
 import 'package:flutter_application_1/src/services/utils.dart';
 
 class OrderTitle extends StatelessWidget {
@@ -13,6 +14,7 @@ class OrderTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ExpansionTile(
+      initiallyExpanded: order.status == 'pagamento_pendente',
       title: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -67,14 +69,38 @@ class OrderTitle extends StatelessWidget {
           ),
         ),
         // Total Geral
-        Text.rich(TextSpan(
-          style: const TextStyle(fontSize: 20),
-          children: [
-            const TextSpan(
-                text: 'Total ', style: TextStyle(fontWeight: FontWeight.bold)),
-            TextSpan(text: utils.priceToCurrency(order.value)),
-          ],
-        ))
+        Text.rich(
+          TextSpan(
+            style: const TextStyle(fontSize: 20),
+            children: [
+              const TextSpan(
+                  text: 'Total ',
+                  style: TextStyle(fontWeight: FontWeight.bold)),
+              TextSpan(text: utils.priceToCurrency(order.value)),
+            ],
+          ),
+        ),
+        // Botao de pagamento
+        Visibility(
+          visible: order.status == 'pagamento_pendente',
+          child: SizedBox(
+            height: 45,
+            child: ElevatedButton.icon(
+              style: ElevatedButton.styleFrom(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+              ),
+              onPressed: () {
+                showDialog(context: context, builder: (_) {
+                  return PaymentDialog(order: order);
+                });
+              },
+              label: const Text("Ver QR Code Pix"),
+              icon: const Icon(Icons.pix),
+            ),
+          ),
+        )
       ],
     );
   }
