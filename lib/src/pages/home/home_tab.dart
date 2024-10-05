@@ -1,6 +1,6 @@
+import 'package:add_to_cart_animation/add_to_cart_animation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/src/config/custom_colors.dart';
-import 'package:badges/badges.dart' as badges;
 import 'package:flutter_application_1/src/pages/home/components/item_title.dart';
 import 'package:flutter_application_1/src/pages/home/components/titulo_categoria.dart';
 // ignore: library_prefixes
@@ -23,91 +23,107 @@ class _HomeTabState extends State<HomeTab> {
     'Grãos'
   ];
 
-  String categoriaSelecionada = "Verduras";
+  String categoriaSelecionada = "Todas";
+
+  GlobalKey<CartIconKey> globalKeyCartItems = GlobalKey<CartIconKey>();
+  late Function(GlobalKey) runAddToCardAnimation;
+
+  void itemSelectedCartAnimation(GlobalKey gkImage) {
+    runAddToCardAnimation(gkImage);
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const AppTitle(),
-        actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 17),
-            child: badges.Badge(
-                position: badges.BadgePosition.topEnd(top: -14, end: -8),
-                badgeContent: const Text(
-                  "4",
-                  style: TextStyle(color: Colors.white, fontSize: 12),
+    return AddToCartAnimation(
+      cartKey: globalKeyCartItems,
+      createAddToCartAnimation: (addToCardAnimationMethod) {
+        runAddToCardAnimation = addToCardAnimationMethod;
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          centerTitle: true,
+          title: const AppTitle(),
+          actions: [
+            Padding(
+              padding: const EdgeInsets.only(right: 17),
+              child: AddToCartIcon(
+                key: globalKeyCartItems,
+                badgeOptions: BadgeOptions(
+                  backgroundColor: CustomColors.customizedContrastColor,
+                  foregroundColor: Colors.white,
                 ),
-                badgeStyle: badges.BadgeStyle(
-                    badgeColor: CustomColors.customizedContrastColor),
-                child: Icon(Icons.shopping_cart,
-                    color: CustomColors.customizedAppColor)),
-          )
-        ],
-      ),
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-            child: TextFormField(
-                decoration: InputDecoration(
-                    isDense: true,
-                    fillColor: Colors.white,
-                    filled: true,
-                    hintText: "Faça sua pesquisa aqui...",
-                    hintStyle:
-                        TextStyle(color: Colors.grey.shade400, fontSize: 16),
-                    prefixIcon: Icon(
-                      Icons.search,
-                      color: CustomColors.customizedContrastColor,
-                      size: 24,
-                    ),
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(60),
-                        borderSide: const BorderSide(
-                            width: 0, style: BorderStyle.none)))),
-          ),
-          Container(
-            padding: const EdgeInsets.only(left: 25),
-            height: 40,
-            child: ListView.separated(
-                scrollDirection: Axis.horizontal,
+                icon: Align(
+                  alignment: const Alignment(-0.2, -0.1),
+                  child: Icon(Icons.shopping_cart,
+                      color: CustomColors.customizedAppColor),
+                ),
+              ),
+            )
+          ],
+        ),
+        body: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+              child: TextFormField(
+                  decoration: InputDecoration(
+                      isDense: true,
+                      fillColor: Colors.white,
+                      filled: true,
+                      hintText: "Faça sua pesquisa aqui...",
+                      hintStyle:
+                          TextStyle(color: Colors.grey.shade400, fontSize: 16),
+                      prefixIcon: Icon(
+                        Icons.search,
+                        color: CustomColors.customizedContrastColor,
+                        size: 24,
+                      ),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(60),
+                          borderSide: const BorderSide(
+                              width: 0, style: BorderStyle.none)))),
+            ),
+            Container(
+              padding: const EdgeInsets.only(left: 25),
+              height: 40,
+              child: ListView.separated(
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (_, index) {
+                    return TituloCategoria(
+                      onPressed: () {
+                        setState(() {
+                          categoriaSelecionada = appData.categorias[index];
+                        });
+                      },
+                      categoria: appData.categorias[index],
+                      isSelected:
+                          appData.categorias[index] == categoriaSelecionada,
+                    );
+                  },
+                  separatorBuilder: (_, index) => const SizedBox(width: 10),
+                  itemCount: appData.categorias.length),
+            ),
+            Expanded(
+              child: GridView.builder(
+                padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
+                physics: const BouncingScrollPhysics(),
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    mainAxisSpacing: 10,
+                    crossAxisSpacing: 10,
+                    childAspectRatio: (9 / 12)),
+                itemCount: appData.items.length,
                 itemBuilder: (_, index) {
-                  return TituloCategoria(
-                    onPressed: () {
-                      setState(() {
-                        categoriaSelecionada = appData.categorias[index];
-                      });
-                    },
-                    categoria: appData.categorias[index],
-                    isSelected:
-                        appData.categorias[index] == categoriaSelecionada,
+                  return ItemTitle(
+                    item: appData.items[index],
+                    cartAnimationFunction: itemSelectedCartAnimation,
                   );
                 },
-                separatorBuilder: (_, index) => const SizedBox(width: 10),
-                itemCount: appData.categorias.length),
-          ),
-          Expanded(
-            child: GridView.builder(
-              padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
-              physics: const BouncingScrollPhysics(),
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                mainAxisSpacing: 10,
-                crossAxisSpacing: 10,
-                childAspectRatio: (9 / 12)
               ),
-              itemCount: appData.items.length,
-              itemBuilder: (_, index) {
-                return ItemTitle(item: appData.items[index]);
-              },
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
 }
-

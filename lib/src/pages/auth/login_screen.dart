@@ -1,6 +1,5 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/src/pages/home/home_tab.dart';
 import 'package:flutter_application_1/src/pages/widgets/app_title.dart';
 import 'package:flutter_application_1/src/pages/widgets/text_form.dart';
 import 'package:flutter_application_1/src/pages/base/base_screen.dart';

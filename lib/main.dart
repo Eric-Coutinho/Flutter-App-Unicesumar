@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/src/pages/auth/login_screen.dart';
 import 'package:flutter_application_1/src/config/custom_colors.dart';
 import 'package:flutter_application_1/src/pages/splash/splash_screen.dart';
 

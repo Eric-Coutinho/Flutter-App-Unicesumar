@@ -5,10 +5,13 @@ import 'package:flutter_application_1/src/pages/product/product_screen.dart';
 import 'package:flutter_application_1/src/services/utils.dart';
 
 class ItemTitle extends StatelessWidget {
-  ItemTitle({super.key, required this.item});
+  final void Function(GlobalKey) cartAnimationFunction;
+
+  ItemTitle({super.key, required this.item, required this.cartAnimationFunction});
 
   final ItemModel item;
   final Utils utils = Utils();
+  final GlobalKey gkImage = GlobalKey();
 
   @override
   Widget build(BuildContext context) {
@@ -31,8 +34,8 @@ class ItemTitle extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     Expanded(
-                      child: Hero(
-                        tag: item.urlImage,
+                      child: Container(
+                        key: gkImage,
                         child: Image.asset(item.urlImage),
                       ),
                     ),
@@ -68,7 +71,7 @@ class ItemTitle extends StatelessWidget {
           right: 4,
           child: GestureDetector(
             onTap: () {
-              // print('Item Selecionado: ${item.itemName}');
+              cartAnimationFunction(gkImage);
             },
             child: Container(
               height: 40,
