@@ -1,5 +1,7 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/src/pages/home/home_tab.dart';
+import 'package:flutter_application_1/src/pages/widgets/app_title.dart';
 import 'package:flutter_application_1/src/pages/widgets/text_form.dart';
 import 'package:flutter_application_1/src/pages/base/base_screen.dart';
 import 'package:flutter_application_1/src/config/custom_colors.dart';
@@ -27,20 +29,10 @@ class LoginScreen extends StatelessWidget {
                   child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text.rich(TextSpan(
-                    style: const TextStyle(fontSize: 35),
-                    children: [
-                      const TextSpan(
-                          text: 'Hortifruti ',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold)),
-                      TextSpan(
-                          text: 'Comunitária',
-                          style: TextStyle(
-                              color: CustomColors.customizedContrastColor)),
-                    ],
-                  )),
+                  const AppTitle(
+                    titleColor: Colors.white,
+                    fontSize: 35,
+                  ),
                   SizedBox(
                     height: 38,
                     child: DefaultTextStyle(

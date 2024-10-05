@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/src/pages/auth/login_screen.dart';
 import 'package:flutter_application_1/src/config/custom_colors.dart';
+import 'package:flutter_application_1/src/pages/splash/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
                   backgroundColor: CustomColors.customizedAppColor,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(18))))),
-      home: const LoginScreen(),
+      home: const SplashScreen(),
       debugShowCheckedModeBanner: false,
     );
   }

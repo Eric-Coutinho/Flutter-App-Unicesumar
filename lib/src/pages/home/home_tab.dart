@@ -5,6 +5,7 @@ import 'package:flutter_application_1/src/pages/home/components/item_title.dart'
 import 'package:flutter_application_1/src/pages/home/components/titulo_categoria.dart';
 // ignore: library_prefixes
 import 'package:flutter_application_1/src/config/app_data.dart' as appData;
+import 'package:flutter_application_1/src/pages/widgets/app_title.dart';
 
 class HomeTab extends StatefulWidget {
   const HomeTab({super.key});
@@ -29,19 +30,7 @@ class _HomeTabState extends State<HomeTab> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text.rich(TextSpan(
-          style: const TextStyle(fontSize: 25),
-          children: [
-            TextSpan(
-                text: 'Hortifruti ',
-                style: TextStyle(
-                    color: CustomColors.customizedAppColor,
-                    fontWeight: FontWeight.bold)),
-            TextSpan(
-                text: 'Comunitária',
-                style: TextStyle(color: CustomColors.customizedContrastColor)),
-          ],
-        )),
+        title: const AppTitle(),
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 17),
@@ -121,3 +110,4 @@ class _HomeTabState extends State<HomeTab> {
     );
   }
 }
+
