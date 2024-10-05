@@ -64,7 +64,7 @@ class RegisterScreen extends StatelessWidget {
                                               BorderRadius.circular(18))),
                                   onPressed: () {
                                     Navigator.of(context).push(MaterialPageRoute(builder: (c) {
-                                      return const LoginScreen();
+                                      return LoginScreen();
                                     }));
                                   },
                                   child: const Text(

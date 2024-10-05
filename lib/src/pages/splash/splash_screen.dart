@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/src/config/custom_colors.dart';
-import 'package:flutter_application_1/src/pages/auth/login_screen.dart';
 import 'package:flutter_application_1/src/pages/widgets/app_title.dart';
+import 'package:flutter_application_1/src/routes/app_routes.dart';
+import 'package:get/get.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -15,15 +16,9 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Future.delayed(
-      const Duration(seconds: 1), // ALTERAR TEMPO
+      const Duration(seconds: 3),
       () {
-        Navigator.of(context).pushReplacement(
-          MaterialPageRoute(
-            builder: (c) {
-              return const LoginScreen();
-            },
-          ),
-        );
+        Get.offNamed(PageRoutes.loginRoute);
       },
     );
   }

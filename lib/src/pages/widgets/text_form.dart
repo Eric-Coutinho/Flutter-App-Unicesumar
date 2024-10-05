@@ -7,6 +7,8 @@ class TextForm extends StatefulWidget {
   final bool isSecret;
   final String? initialValue;
   final bool isReadOnly;
+  final String? Function(String?)? validate;
+  final TextEditingController? controller;
 
   const TextForm({
     super.key,
@@ -15,6 +17,8 @@ class TextForm extends StatefulWidget {
     this.isSecret = false,
     this.initialValue,
     this.isReadOnly = false,
+    this.validate,
+    this.controller,
   });
 
   @override
@@ -38,6 +42,8 @@ class _TextFormState extends State<TextForm> {
           readOnly: widget.isReadOnly,
           style: TextStyle(color: CustomColors.inputTextColor),
           obscureText: isObscure,
+          validator: widget.validate,
+          controller: widget.controller,
           decoration: InputDecoration(
             prefixIcon: Icon(widget.icon),
             suffixIcon: widget.isSecret
