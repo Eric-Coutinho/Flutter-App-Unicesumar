@@ -6,6 +6,8 @@ import 'package:flutter_application_1/src/pages/widgets/app_title.dart';
 import 'package:flutter_application_1/src/pages/widgets/text_form.dart';
 import 'package:flutter_application_1/src/config/custom_colors.dart';
 import 'package:flutter_application_1/src/pages/register/register_screen.dart';
+import 'package:flutter_application_1/src/routes/app_routes.dart';
+import 'package:flutter_application_1/src/services/utils.dart';
 import 'package:get/get.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -14,6 +16,7 @@ class LoginScreen extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+  final utils = Utils();
 
   @override
   Widget build(BuildContext context) {
@@ -119,7 +122,7 @@ class LoginScreen extends StatelessWidget {
                                   child: ElevatedButton(
                                     onPressed: authController.isLoading.value
                                         ? null
-                                        : () {
+                                        : () async {
                                             if (_formKey.currentState!
                                                 .validate()) {
                                               FocusScope.of(context).unfocus();
@@ -128,12 +131,20 @@ class LoginScreen extends StatelessWidget {
                                               String password =
                                                   passwordController.text;
 
-                                              authController.login(
+                                              await authController.login(
                                                   email: email,
                                                   password: password);
 
-                                              // Get.toNamed(
-                                              //     PageRoutes.homeRoute);
+                                              if (authController
+                                                  .isLoggedIn.value) {
+                                                Get.toNamed(
+                                                    PageRoutes.homeRoute);
+                                              } else {
+                                                utils.showToast(
+                                                    message:
+                                                        "Email ou senha inválidos.",
+                                                    isError: true);
+                                              }
                                             }
                                           },
                                     child: authController.isLoading.value
@@ -156,9 +167,13 @@ class LoginScreen extends StatelessWidget {
                                 alignment: Alignment.centerRight,
                                 child: TextButton(
                                     onPressed: () {
-                                      showDialog(context: context, builder: (_) {
-                                        return ForgotPasswordDialog(email: emailController.text,);
-                                      });
+                                      showDialog(
+                                          context: context,
+                                          builder: (_) {
+                                            return ForgotPasswordDialog(
+                                              email: emailController.text,
+                                            );
+                                          });
                                     },
                                     child: Text(
                                       'Esqueci minha senha',

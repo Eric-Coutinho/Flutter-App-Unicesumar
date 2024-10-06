@@ -1,7 +1,24 @@
+import 'package:flutter_application_1/src/model/category_model.dart';
 import 'package:flutter_application_1/src/model/item_model.dart';
 import 'package:flutter_application_1/src/model/cart_item_model.dart';
 import 'package:flutter_application_1/src/model/order_model.dart';
 import 'package:flutter_application_1/src/model/user_model.dart';
+
+CategoryModel cat1 = CategoryModel(id: 1, code: "aslJAA911", name: "Cereais");
+CategoryModel cat2 = CategoryModel(id: 1, code: "FAS8965KL", name: "Temperos");
+CategoryModel cat3 = CategoryModel(id: 1, code: "aabvgA971", name: "Verduras");
+CategoryModel cat4 = CategoryModel(id: 1, code: "POIkj96HA", name: "Grãos");
+CategoryModel cat5 = CategoryModel(id: 1, code: "JFOnmc862", name: "Frutas");
+CategoryModel cat6 = CategoryModel(id: 1, code: "9jJYUkl75", name: "Legumes");
+
+List<CategoryModel> categorias = [
+  cat1,
+  cat2,
+  cat3,
+  cat4,
+  cat5,
+  cat6,
+];
 
 ItemModel maca = ItemModel(
   itemDescription:
@@ -10,6 +27,7 @@ ItemModel maca = ItemModel(
   itemName: 'Maçã',
   price: 5.5,
   typeUnity: 'kg',
+  category: cat5,
 );
 
 ItemModel uva = ItemModel(
@@ -19,6 +37,7 @@ ItemModel uva = ItemModel(
   itemName: 'Uva',
   price: 7.4,
   typeUnity: 'kg',
+  category: cat5,
 );
 
 ItemModel goiaba = ItemModel(
@@ -28,6 +47,7 @@ ItemModel goiaba = ItemModel(
   itemName: 'Goiaba',
   price: 11.5,
   typeUnity: 'kg',
+  category: cat5,
 );
 
 ItemModel kiwi = ItemModel(
@@ -37,6 +57,7 @@ ItemModel kiwi = ItemModel(
   itemName: 'Kiwi',
   price: 2.5,
   typeUnity: 'un',
+  category: cat5,
 );
 
 ItemModel manga = ItemModel(
@@ -46,6 +67,7 @@ ItemModel manga = ItemModel(
   itemName: 'Manga',
   price: 2.7,
   typeUnity: 'un',
+  category: cat5,
 );
 
 ItemModel mamao = ItemModel(
@@ -55,15 +77,18 @@ ItemModel mamao = ItemModel(
   itemName: 'Mamão papaya',
   price: 7.99,
   typeUnity: 'kg',
+  category: cat5,
 );
 
 ItemModel aveia = ItemModel(
-    itemName: 'Aveia',
-    itemDescription:
-        'Rica em fibras, proteínas e nutrientes essenciais, a aveia é um ingrediente saudável e delicioso para quem busca uma alimentação equilibrada. Ela pode ser consumida em receitas diversas, como mingaus, bolos, pães e até mesmo como substituto do trigo em receitas sem glúten. Não perca a chance de experimentar a aveia e descobrir todos os seus benefícios para a saúde!',
-    price: 15.0,
-    typeUnity: 'kg',
-    urlImage: 'assets/images/aveia.png');
+  itemName: 'Aveia',
+  itemDescription:
+      'Rica em fibras, proteínas e nutrientes essenciais, a aveia é um ingrediente saudável e delicioso para quem busca uma alimentação equilibrada. Ela pode ser consumida em receitas diversas, como mingaus, bolos, pães e até mesmo como substituto do trigo em receitas sem glúten. Não perca a chance de experimentar a aveia e descobrir todos os seus benefícios para a saúde!',
+  price: 15.0,
+  typeUnity: 'kg',
+  urlImage: 'assets/images/aveia.png',
+  category: cat1,
+);
 
 ItemModel castanhaCaju = ItemModel(
   itemName: 'Castanha de caju',
@@ -72,6 +97,7 @@ ItemModel castanhaCaju = ItemModel(
   price: 50.0,
   typeUnity: 'kg',
   urlImage: 'assets/images/castanha-caju.png',
+  category: cat1,
 );
 
 ItemModel castanhaPara = ItemModel(
@@ -81,6 +107,7 @@ ItemModel castanhaPara = ItemModel(
   price: 60.0,
   typeUnity: 'kg',
   urlImage: 'assets/images/castanha-para.png',
+  category: cat1,
 );
 
 ItemModel granola = ItemModel(
@@ -90,6 +117,7 @@ ItemModel granola = ItemModel(
   price: 65.7,
   typeUnity: 'kg',
   urlImage: 'assets/images/granola.png',
+  category: cat1,
 );
 
 ItemModel acafrao = ItemModel(
@@ -99,6 +127,7 @@ ItemModel acafrao = ItemModel(
   price: 120.0,
   typeUnity: 'kg',
   urlImage: 'assets/images/acafrao.png',
+  category: cat2,
 );
 
 ItemModel cominho = ItemModel(
@@ -108,6 +137,7 @@ ItemModel cominho = ItemModel(
   price: 27.8,
   typeUnity: 'kg',
   urlImage: 'assets/images/cominho.png',
+  category: cat2,
 );
 
 ItemModel oregano = ItemModel(
@@ -117,6 +147,7 @@ ItemModel oregano = ItemModel(
   price: 4.25,
   typeUnity: 'kg',
   urlImage: 'assets/images/oregano.png',
+  category: cat2,
 );
 
 ItemModel curcuma = ItemModel(
@@ -126,6 +157,7 @@ ItemModel curcuma = ItemModel(
   price: 7.9,
   typeUnity: 'kg',
   urlImage: 'assets/images/curcuma.png',
+  category: cat2,
 );
 
 ItemModel alecrim = ItemModel(
@@ -135,6 +167,7 @@ ItemModel alecrim = ItemModel(
   price: 2.6,
   typeUnity: 'kg',
   urlImage: 'assets/images/alecrim.png',
+  category: cat2,
 );
 
 ItemModel pimentaReino = ItemModel(
@@ -144,6 +177,7 @@ ItemModel pimentaReino = ItemModel(
   price: 6.5,
   typeUnity: 'kg',
   urlImage: 'assets/images/pimenta_do_reino.png',
+  category: cat2,
 );
 
 ItemModel coentroFolhas = ItemModel(
@@ -153,6 +187,7 @@ ItemModel coentroFolhas = ItemModel(
   price: 1.75,
   typeUnity: 'un',
   urlImage: 'assets/images/coentro.png',
+  category: cat2,
 );
 
 ItemModel alface = ItemModel(
@@ -162,6 +197,7 @@ ItemModel alface = ItemModel(
   price: 5.0,
   typeUnity: 'un',
   urlImage: 'assets/images/alface.png',
+  category: cat3,
 );
 
 ItemModel feijao = ItemModel(
@@ -171,6 +207,7 @@ ItemModel feijao = ItemModel(
   price: 10.0,
   typeUnity: 'kg',
   urlImage: 'assets/images/feijao.png',
+  category: cat3,
 );
 
 ItemModel arroz = ItemModel(
@@ -180,6 +217,7 @@ ItemModel arroz = ItemModel(
   price: 7.0,
   typeUnity: 'kg',
   urlImage: 'assets/images/arroz.png',
+  category: cat4,
 );
 
 ItemModel milho = ItemModel(
@@ -189,6 +227,7 @@ ItemModel milho = ItemModel(
   price: 6.5,
   typeUnity: 'kg',
   urlImage: 'assets/images/milho.png',
+  category: cat4,
 );
 
 ItemModel banana = ItemModel(
@@ -198,6 +237,7 @@ ItemModel banana = ItemModel(
   price: 1.5,
   typeUnity: 'un',
   urlImage: 'assets/images/banana.png',
+  category: cat5,
 );
 
 ItemModel abacaxi = ItemModel(
@@ -207,6 +247,7 @@ ItemModel abacaxi = ItemModel(
   price: 5.5,
   typeUnity: 'un',
   urlImage: 'assets/images/abacaxi.png',
+  category: cat5,
 );
 
 ItemModel amora = ItemModel(
@@ -216,6 +257,7 @@ ItemModel amora = ItemModel(
   price: 11.25,
   typeUnity: 'kg',
   urlImage: 'assets/images/amora.png',
+  category: cat5,
 );
 
 ItemModel ameixa = ItemModel(
@@ -225,6 +267,7 @@ ItemModel ameixa = ItemModel(
   price: 1.5,
   typeUnity: 'un',
   urlImage: 'assets/images/ameixa.png',
+  category: cat5,
 );
 
 ItemModel caju = ItemModel(
@@ -234,6 +277,7 @@ ItemModel caju = ItemModel(
   price: 27.5,
   typeUnity: 'kg',
   urlImage: 'assets/images/caju.png',
+  category: cat5,
 );
 
 ItemModel coco = ItemModel(
@@ -243,6 +287,7 @@ ItemModel coco = ItemModel(
   price: 2.5,
   typeUnity: 'un',
   urlImage: 'assets/images/coco.png',
+  category: cat5,
 );
 
 ItemModel jambo = ItemModel(
@@ -252,6 +297,7 @@ ItemModel jambo = ItemModel(
   price: 0.5,
   typeUnity: 'un',
   urlImage: 'assets/images/jambo.png',
+  category: cat5,
 );
 
 ItemModel melancia = ItemModel(
@@ -261,6 +307,7 @@ ItemModel melancia = ItemModel(
   price: 7.0,
   typeUnity: 'un',
   urlImage: 'assets/images/melancia.png',
+  category: cat5,
 );
 
 ItemModel cenoura = ItemModel(
@@ -270,6 +317,7 @@ ItemModel cenoura = ItemModel(
   price: 5.75,
   typeUnity: 'kg',
   urlImage: 'assets/images/cenoura.png',
+  category: cat3,
 );
 
 ItemModel pimentao = ItemModel(
@@ -279,6 +327,7 @@ ItemModel pimentao = ItemModel(
   price: 12.5,
   typeUnity: 'kg',
   urlImage: 'assets/images/pimentao.png',
+  category: cat3,
 );
 
 ItemModel batata = ItemModel(
@@ -288,6 +337,7 @@ ItemModel batata = ItemModel(
   price: 6.75,
   typeUnity: 'kg',
   urlImage: 'assets/images/batata.png',
+  category: cat3,
 );
 
 ItemModel tomate = ItemModel(
@@ -297,6 +347,7 @@ ItemModel tomate = ItemModel(
   price: 10.0,
   typeUnity: 'kg',
   urlImage: 'assets/images/tomate.png',
+  category: cat5,
 );
 
 ItemModel cebola = ItemModel(
@@ -306,6 +357,7 @@ ItemModel cebola = ItemModel(
   price: 8.25,
   typeUnity: 'kg',
   urlImage: 'assets/images/cebola.png',
+  category: cat3,
 );
 
 ItemModel brocolis = ItemModel(
@@ -315,6 +367,7 @@ ItemModel brocolis = ItemModel(
   price: 5.75,
   typeUnity: 'kg',
   urlImage: 'assets/images/brocolis.png',
+  category: cat6,
 );
 
 ItemModel espinafre = ItemModel(
@@ -324,6 +377,7 @@ ItemModel espinafre = ItemModel(
   price: 15.25,
   typeUnity: 'kg',
   urlImage: 'assets/images/espinafre.png',
+  category: cat3,
 );
 
 ItemModel pimentaoAmarelo = ItemModel(
@@ -333,6 +387,7 @@ ItemModel pimentaoAmarelo = ItemModel(
   price: 3.5,
   typeUnity: 'kg',
   urlImage: 'assets/images/pimentao.png',
+  category: cat3,
 );
 
 ItemModel abobora = ItemModel(
@@ -342,6 +397,7 @@ ItemModel abobora = ItemModel(
   price: 4.0,
   typeUnity: 'un',
   urlImage: 'assets/images/abobora.png',
+  category: cat6,
 );
 
 ItemModel pepino = ItemModel(
@@ -351,6 +407,7 @@ ItemModel pepino = ItemModel(
   price: 7.0,
   typeUnity: 'kg',
   urlImage: 'assets/images/pepino.png',
+  category: cat6,
 );
 
 List<ItemModel> items = [
@@ -393,15 +450,6 @@ List<ItemModel> items = [
   abobora,
   pepino,
   aveia
-];
-
-List<String> categorias = [
-  'Todas',
-  'Frutas',
-  'Verduras',
-  'Temperos',
-  'Cereais',
-  'Grãos'
 ];
 
 List<CartItemModel> cartItems = [
