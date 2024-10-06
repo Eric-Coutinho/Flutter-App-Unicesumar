@@ -18,6 +18,8 @@ class HomeTab extends StatefulWidget {
 class _HomeTabState extends State<HomeTab> {
   String categoriaSelecionada = "Todas";
 
+  TextEditingController controller = TextEditingController();
+
   List<ItemModel> products = [];
 
   GlobalKey<CartIconKey> globalKeyCartItems = GlobalKey<CartIconKey>();
@@ -67,6 +69,19 @@ class _HomeTabState extends State<HomeTab> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
               child: TextFormField(
+                controller: controller,
+                onChanged: (value) {
+                  if (value.length > 1) {
+                    setState(() {
+                      products = [];
+                      var productsName = appData.items.where((product) =>
+                          product.itemName
+                              .toLowerCase()
+                              .contains(value.toLowerCase().trim()));
+                      products.addAll(productsName);
+                    });
+                  }
+                },
                 decoration: InputDecoration(
                   isDense: true,
                   fillColor: Colors.white,
@@ -79,6 +94,19 @@ class _HomeTabState extends State<HomeTab> {
                     color: CustomColors.customizedContrastColor,
                     size: 24,
                   ),
+                  suffixIcon: controller.text.isNotEmpty ? GestureDetector(
+                    onTap: () {
+                      controller.text = "";
+                      products = [];
+                      setState(() {
+                        products.addAll(appData.items);
+                      });
+                    },
+                    child: const Icon(
+                      Icons.close,
+                      color: Colors.red,
+                    ),
+                  ) : null,
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(60),
                     borderSide:
@@ -100,12 +128,14 @@ class _HomeTabState extends State<HomeTab> {
                                 appData.categorias[index].name;
                             products = [];
                             var productCategory = appData.items.where((p) =>
-                                p.category.name == appData.categorias[index].name);
+                                p.category.name ==
+                                appData.categorias[index].name);
                             products.addAll(productCategory);
                           });
                         },
                         categoria: appData.categorias[index].name,
-                        isSelected: appData.categorias[index].name == categoriaSelecionada);
+                        isSelected: appData.categorias[index].name ==
+                            categoriaSelecionada);
                   },
                   separatorBuilder: (_, index) => const SizedBox(width: 10),
                   itemCount: appData.categorias.length),
