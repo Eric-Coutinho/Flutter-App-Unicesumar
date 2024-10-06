@@ -100,7 +100,7 @@ class _HomeTabState extends State<HomeTab> {
                                 appData.categorias[index].name;
                             products = [];
                             var productCategory = appData.items.where((p) =>
-                                p.category.id == appData.categorias[index].id);
+                                p.category.name == appData.categorias[index].name);
                             products.addAll(productCategory);
                           });
                         },
